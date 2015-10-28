@@ -11,7 +11,7 @@ namespace ContosoUniversity
     public class MvcApplication : System.Web.HttpApplication
     {
         /// <summary>
-        /// test
+        /// test test
         /// </summary>
         protected void Application_Start()
         {
