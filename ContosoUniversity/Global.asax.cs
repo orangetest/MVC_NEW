@@ -10,6 +10,9 @@ namespace ContosoUniversity
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// test
+        /// </summary>
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
