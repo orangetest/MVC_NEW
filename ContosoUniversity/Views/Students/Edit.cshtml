@@ -1,0 +1,77 @@
+﻿@model ContosoUniversity.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<link href="~/Content/normalize.css" rel="stylesheet" />
+<link href="~/Content/datepicker.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstMidName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstMidName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstMidName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnrollmentDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="EnrollmentDate" class="input-append date col-md-2">                  @*style="width:300px"   form-control *@ 
+                <input id="txtCalendar" type="text" style="width: 216px" />           @*   class="dtp_form-control"   style="width: 300px; height: 28px; border-radius: 4px;"/> data-format="dd/MM/yyyy HH:mm:ss PP"  style="width:218px"  class = "form-control"  *@
+                <span class="add-on">
+                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //$('#txtCalendar').datepicker.setDefaults($.datepicker.regional["fr"]);
+        $('#txtCalendar').datepicker({
+            //'option', $.datepicker.regional['bg']
+            //dateFormat: $.datepicker
+            //regional['bg'].dateFormat,
+        }).setDefaults($.datepicker.regional['en']);   //.setDefaults(options);              .setDefaults($.datepicker.regional['bg']);                        //.datepicker('setDate', model => model.  new Date()) 
+        ////$.datepicker.regional["local"] = $.datepicker.regional['bg-BG'];    //General.CountryCode.toLowerCase()];
+    });
+    
+    //alert(General.CountryCode.);  //General.CountryCode.toLowerCase());
+</script>
+}
