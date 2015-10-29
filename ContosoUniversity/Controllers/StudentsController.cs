@@ -41,7 +41,6 @@ namespace ContosoUniversity.Controllers
         public ActionResult Create()
         {
             return View();
-            //23232323
         }
 
         // POST: Students/Create
@@ -55,7 +54,6 @@ namespace ContosoUniversity.Controllers
             {
                 db.Students.Add(student);
                 db.SaveChanges();
-                var IvoTest = "Ivo Test12243";
                 return RedirectToAction("Index");
             }
 
