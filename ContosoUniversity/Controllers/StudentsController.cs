@@ -53,7 +53,7 @@ namespace ContosoUniversity.Controllers
             if (ModelState.IsValid)
             {
                 db.Students.Add(student);
-                db.SaveChanges();
+                db.SaveChanges();  //branche1
                 return RedirectToAction("Index");
             }
 
