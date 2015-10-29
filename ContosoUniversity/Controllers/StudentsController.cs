@@ -54,6 +54,7 @@ namespace ContosoUniversity.Controllers
             {
                 db.Students.Add(student);
                 db.SaveChanges();
+                var IvoTest = "Ivo Test1";
                 return RedirectToAction("Index");
             }
 
